@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Solutions</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React and ReactDOM CDNs -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Custom CSS for smooth scrolling -->
+    <style>
+      html {
+          scroll-behavior: smooth;
+      }
+      .line-clamp-3 {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+  const { useState } = React;
+
+  // New WhatsApp chat button component
+  const WhatsappButton = () => {
+    const phoneNumber = '919789817466';
+    const message = encodeURIComponent('Hello, I am interested in your printing solutions. Could you please provide more information?');
+
+    return (
+      <a
+        href={`https://wa.me/${phoneNumber}?text=${message}`}
+        className="fixed bottom-4 right-4 z-[100] bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-110"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C7.545 2 3.961 5.586 3.961 10.082c0 1.796.577 3.534 1.666 4.965L4 20l5.053-1.314c1.378.75 2.973 1.144 4.087 1.144h.01c4.496 0 8.081-3.586 8.081-8.082S16.536 2 12.04 2zm4.843 11.235s-.246-.124-.492-.248c-.247-.124-.967-.474-1.115-.526-.147-.052-.314-.052-.441.052s-.492.526-.604.651-.23.124-.458.062c-1.464-.5-2.42-1.282-3.328-2.73-.232-.375-.045-.58.109-.734s.248-.198.372-.322c.125-.124.166-.232.249-.413s.04-.32-.012-.445c-.052-.124-.492-1.18-.67-1.632-.178-.452-.356-.368-.492-.368s-.284-.045-.458-.045-.492.052-1.01.526c-.52.474-1.18 1.18-1.18 2.872 0 1.69 1.205 3.322 1.373 3.546.168.224 2.585 4.09 6.22 5.511 1.05.412 1.88.665 2.523.834.908.248 1.745.21 2.404.133.66-.079 1.954-.799 2.238-1.578.284-.779.284-1.442.198-1.578-.086-.136-.246-.198-.528-.344z" />
+        </svg>
+      </a>
+    );
+  };
+
+  // Main App component
+  function App() {
+    const [products, setProducts] = useState([
+      {
+        id: 1,
+        name: 'Pre Press Design Software',
+        category: 'Pre Press Solutions',
+        description: 'Advanced software for professional graphic design and print layout, offering precise control over color and typography.',
+        imageUrl: 'https://placehold.co/400x300/60A5FA/FFFFFF?text=Design+Software',
+      },
+     
