@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Print Solutions</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- React and ReactDOM CDNs -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel for JSX transformation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- Custom CSS for smooth scrolling -->
+    <style>
+      html {
+          scroll-behavior: smooth;
+      }
+      .line-clamp-3 {
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+  const { useState } = React;
+
+  // New WhatsApp chat button component
+  const WhatsappButton = () => {
+    const phoneNumber = '919789817466';
+    const message = encodeURIComponent('Hello, I am interested in your printing solutions. Could you please provide more information?');
+
+    return (
+      <a
+        href={`https://wa.me/${phoneNumber}?text=${message}`}
+        className="fixed bottom-4 right-4 z-[100] bg-green-600 text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-green-700 transition duration-300 transform hover:scale-110"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.04 2C7.545 2 3.961 5.586 3.961 10.082c0 1.796.577 3.534 1.666 4.965L4 20l5.053-1.314c1.378.75 2.973 1.144 4.087 1.144h.01c4.496 0 8.081-3.586 8.081-8.082S16.536 2 12.04 2zm4.843 11.235s-.246-.124-.492-.248c-.247-.124-.967-.474-1.115-.526-.147-.052-.314-.052-.441.052s-.492.526-.604.651-.23.124-.458.062c-1.464-.5-2.42-1.282-3.328-2.73-.232-.375-.045-.58.109-.734s.248-.198.372-.322c.125-.124.166-.232.249-.413s.04-.32-.012-.445c-.052-.124-.492-1.18-.67-1.632-.178-.452-.356-.368-.492-.368s-.284-.045-.458-.045-.492.052-1.01.526c-.52.474-1.18 1.18-1.18 2.872 0 1.69 1.205 3.322 1.373 3.546.168.224 2.585 4.09 6.22 5.511 1.05.412 1.88.665 2.523.834.908.248 1.745.21 2.404.133.66-.079 1.954-.799 2.238-1.578.284-.779.284-1.442.198-1.578-.086-.136-.246-.198-.528-.344z" />
+        </svg>
+      </a>
+    );
+  };
+
+  // Main App component
+  function App() {
+    const [products, setProducts] = useState([
+      {
+        id: 1,
+        name: 'Pre Press Design Software',
+        category: 'Pre Press Solutions',
+        description: 'Advanced software for professional graphic design and print layout, offering precise control over color and typography.',
+        imageUrl: 'https://placehold.co/400x300/60A5FA/FFFFFF?text=Design+Software',
+      },
+      {
+        id: 2,
+        name: 'High-Resolution Plate Setter',
+        category: 'Pre Press Solutions',
+        description: 'Create high-quality printing plates with speed and accuracy, essential for professional offset and flexo printing.',
+        imageUrl: 'https://placehold.co/400x300/4B5563/FFFFFF?text=Plate+Setter',
+      },
+      {
+        id: 3,
+        name: 'Automated Proofing System',
+        category: 'Pre Press Solutions',
+        description: 'Ensure color accuracy with an automated proofing system that simulates the final print output before production.',
+        imageUrl: 'https://placehold.co/400x300/10B981/FFFFFF?text=Proofing+System',
+      },
+      {
+        id: 4,
+        name: 'High-Speed Digital Printer',
+        category: 'Printing Solutions',
+        description: 'Ideal for short-run jobs and variable data printing. Delivers sharp text and vibrant colors with incredible speed.',
+        imageUrl: 'https://placehold.co/400x300/F59E0B/FFFFFF?text=Digital+Printer',
+      },
+      {
+        id: 5,
+        name: 'Offset Printing Press',
+        category: 'Printing Solutions',
+        description: 'A robust and reliable offset press for high-volume, professional-grade printing of brochures, flyers, and catalogs.',
+        imageUrl: 'https://placehold.co/400x300/EF4444/FFFFFF?text=Offset+Press',
+      },
+      {
+        id: 6,
+        name: 'Industrial UV-Curing System',
+        category: 'Printing Solutions',
+        description: 'Accelerate your production workflow with a fast and efficient UV-curing system for ink and coatings on various substrates.',
+        imageUrl: 'https://placehold.co/400x300/8B5CF6/FFFFFF?text=UV+Curing+System',
+      },
+      {
+        id: 7,
+        name: 'Automated Paper Cutter',
+        category: 'Finishing Solutions',
+        description: 'Precisely cut large stacks of paper with this automated cutter. Features programmable settings for a variety of job sizes.',
+        imageUrl: 'https://placehold.co/400x300/EC4899/FFFFFF?text=Paper+Cutter',
+      },
+      {
+        id: 8,
+        name: 'Book Binding Machine',
+        category: 'Finishing Solutions',
+        description: 'Create professional-looking books and reports with this easy-to-use binding machine. Supports a range of binding styles.',
+        imageUrl: 'https://placehold.co/400x300/3B82F6/FFFFFF?text=Binding+Machine',
+      },
+      {
+        id: 9,
+        name: 'Industrial Laminator',
+        category: 'Finishing Solutions',
+        description: 'Protect and enhance your printed materials with a durable, high-speed industrial laminator for single or double-sided lamination.',
+        imageUrl: 'https://placehold.co/400x300/06B6D4/FFFFFF?text=Laminator',
+      },
+    ]);
+
+    return (
+      <div className="bg-gray-50 min-h-screen font-sans antialiased">
+        {/* Header section */}
+        <header className="bg-white shadow-sm sticky top-0 z-50">
+          <div className="container mx-auto px-4 py-6 md:flex md:justify-between md:items-center">
+            <h1 className="text-2xl font-bold text-gray-800">
+              Print Solutions
+            </h1>
+            <nav className="mt-4 md:mt-0">
+              <ul className="flex space-x-6 text-gray-600">
+                <li><a href="#home" className="hover:text-blue-600 transition duration-300">Home</a></li>
+                <li><a href="#solutions" className="hover:text-blue-600 transition duration-300">Solutions</a></li>
+                <li><a href="#about" className="hover:text-blue-600 transition duration-300">About Us</a></li>
+                <li><a href="#contact" className="hover:text-blue-600 transition duration-300">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+
+        {/* Hero Section */}
+        <section id="home" className="bg-blue-600 text-white py-20 md:py-32 flex items-center justify-center">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+              Find the Perfect Printing Machine & Expert Support
+            </h2>
+            <p className="mt-4 text-lg sm:text-xl max-w-2xl mx-auto">
+              With over 15 years of experience in all printing techniques, we provide the right equipment and support to grow your business.
+            </p>
+            <a href="#solutions" className="mt-8 inline-block bg-white text-blue-600 text-lg font-semibold py-3 px-8 rounded-full shadow-lg hover:bg-gray-200 transition duration-300 transform hover:scale-105">
+              View Our Machinery
+            </a>
+          </div>
+        </section>
+
+        {/* Main Content Sections */}
+        <main className="container mx-auto p-4 md:p-8">
+          {/* All Products grouped by category */}
+          {['Pre Press Solutions', 'Printing Solutions', 'Finishing Solutions'].map(category => (
+            <section key={category} className="my-12" id={category === 'Pre Press Solutions' ? 'solutions' : undefined}>
+              <h3 className="text-3xl font-bold text-gray-900 text-center mb-8">
+                {category}
+              </h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {products
+                  .filter(product => product.category === category)
+                  .map(product => (
+                    <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-2xl">
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        className="w-full h-56 object-cover"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = "https://placehold.co/400x300/E5E7EB/9CA3AF?text=Image+Not+Found";
+                        }}
+                      />
+                      <div className="p-6">
+                        <h4 className="text-xl font-semibold text-gray-800 truncate">
+                          {product.name}
+                        </h4>
+                        <p className="mt-2 text-gray-500 text-sm h-14 overflow-hidden line-clamp-3">
+                          {product.description}
+                        </p>
+                        <div className="mt-4 flex justify-between items-center">
+                          <button className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition duration-300 shadow-md">
+                            Learn More
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </div>
+            </section>
+          ))}
+
+          {/* About Us Section */}
+          <section id="about" className="my-12 py-16 bg-white rounded-xl shadow-lg">
+            <div className="container mx-auto px-4 text-center">
+              <h3 className="text-4xl font-extrabold text-gray-900 mb-6">About Us</h3>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                With over 15 years of printing experience, we are a leading provider of comprehensive printing solutions, specializing in the entire print lifecycle from pre-press to finishing. Our deep knowledge of all printing techniques allows us to empower businesses and individuals with cutting-edge technology and expert support, ensuring every print job is a success. We are committed to delivering high-quality, reliable, and innovative products that meet the diverse needs of the modern printing landscape.
+              </p>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="my-12 py-16 bg-white rounded-xl shadow-lg">
+              <div className="container mx-auto px-4 text-center">
+                  <h3 className="text-4xl font-extrabold text-gray-900 mb-6">Get in Touch</h3>
+                  <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
+                      Have questions about our products or need a custom solution? Our team of experts is ready to help you.
+                  </p>
+                  <div className="space-y-4 text-lg">
+                      <p className="font-semibold text-gray-800">Email: <a href="mailto:letsprintkochi@gmail.com" className="text-blue-600 hover:underline">letsprintkochi@gmail.com</a></p>
+                      <p className="font-semibold text-gray-800">Phone: <a href="tel:+919789817466" className="text-blue-600 hover:underline">+91 9789817466</a></p>
+                  </div>
+              </div>
+          </section>
+        </main>
+
+        {/* Footer section */}
+        <footer className="bg-gray-800 text-white mt-12 py-8">
+          <div className="container mx-auto px-4 text-center">
+            <p>&copy; {new Date().getFullYear()} Print Solutions. All rights reserved.</p>
+            <div className="mt-4 text-sm text-gray-400">
+              <a href="#" className="hover:text-white transition duration-300">Privacy Policy</a> | <a href="#" className="ml-2 hover:text-white transition duration-300">Terms of Service</a>
+            </div>
+          </div>
+        </footer>
+        <WhatsappButton />
+      </div>
+    );
+  }
+
+  // Render the App component to the 'root' div
+  ReactDOM.render(<App />, document.getElementById('root'));
+</script>
+
+</body>
+</html>
